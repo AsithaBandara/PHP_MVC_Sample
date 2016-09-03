@@ -17,60 +17,75 @@ class ProjectController extends Controller {
     }
 
     public function index() {
+        $this->view->Projects = $this->model->ProjectList();
         $this->view->JobList = $this->model->JobList();
         $this->view->render('Project/index');
     }
+    
+    public function project_dashboard($id) {
+        $this->view->Project = $this->model->listProject($id);
+        $this->view->render('Project/Project_Dashboard');
+    }
 
-    public function create() {
+    public function send($id) {
+        $this->view->ListJob = $this->model->ListJob($id);
+        $this->view->Customer = $this->model->ListCustomer($id);
 
+        // print_r($this->view->Customer);
+        $this->view->render('Project/Project_details');
+    }
+
+    public function initiate() {
         if (isset($_POST)) {
             $data = array();
+            $data['job_id'] = $_POST['job_id'];
+            $data['customer_id'] = $_POST['customer_id'];
             $data['title'] = $_POST['title'];
             $data['description'] = $_POST['description'];
             $data['status'] = $_POST['status'];
+            $data['manager_id'] = Session::get('id');
 
-            $rowcount = $this->model->create($data);
+
+
+            $rowcount = $this->model->initiate($data);
             if ($rowcount) {
-                $this->view->NewsList = $this->model->NewsList();
-                $this->view->render('NewsFeed/index');
+
+
+                $this->view->render('Project/index');
             } else {
-                header('location: ' . URL . 'NewsFeed');
-            }
-        }
-    }
-    
-    
-    public function send($id){
-        
-    }
-
-    public function edit($id) {
-        $this->view->news = $this->model->listNewsFeed($id);
-        $this->view->render('NewsFeed/edit');
-    }
-
-    public function editSave($id) {
-        if (isset($_POST)) {
-            $data = array();
-            $data['id'] = $id;
-            $data['title'] = $_POST['title'];
-            $data['description'] = $_POST['description'];
-            $data['status'] = $_POST['status'];
-
-            $rowcount = $this->model->editSave($data);
-            if ($rowcount) {
-                $this->view->NewsList = $this->model->NewsList();
-                
-                $this->view->render('NewsFeed/index');
-            } else {
-                header('location: ' . URL . 'NewsFeed');
+                header('location: ' . URL . 'Project');
             }
         }
     }
 
-    public function delete($id) {
-        $this->model->delete($id);
-        header('location: ' . URL . 'NewsFeed');
+    public function assign() {
+        if (isset($_POST)) {
+            $data = array();
+            $data['project_id'] = $_POST['project_id'];
+            $data['start_date'] = $_POST['start_date'];
+            $data['end_date'] = $_POST['end_date'];
+            $data['leader_id'] = $_POST['leader_id'];
+
+            $rowcount = $this->model->assign($data);
+
+            if ($rowcount) {
+                $this->view->render('Project/index');
+            } else {
+                header('location: ' . URL . 'Project');
+            }
+        }
+    }
+
+    public function sendtoassign($id) {
+        $this->view->Leader = $this->model->ListLeader();
+        $this->view->Customer = $this->model->ListCustomertoProject($id);
+        $this->view->Project = $this->model->listprojecttoassign($id);
+       $this->view->render('Project/Assign_Leader');
+    }
+
+    public function listprojects() {
+        $this->view->Projects = $this->model->AssignedProjects();
+        $this->view->render('Project/List_Project');
     }
 
 }

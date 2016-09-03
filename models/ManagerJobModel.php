@@ -25,8 +25,8 @@ class ManagerJobModel extends Model {
     }
 
     public function showJobList() {
-        $sth = $this->db->prepare("SELECT * FROM camss_job");
-        $sth->execute();
+        $sth = $this->db->prepare("SELECT * FROM camss_job WHERE status <> :status");
+        $sth->execute(array(':status'=>'sent'));
         return $sth->fetchAll();
     }
 

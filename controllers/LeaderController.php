@@ -28,7 +28,7 @@ class LeaderController extends Controller {
             $data['username'] = $_POST['username'];
             $data['password'] = md5($_POST['password']);
             $data['description'] = $_POST['description'];
-            $data['role'] = 'leader';
+            $data['role'] = 'teamleader';
             $data['status'] = 'available';
 
 
@@ -66,7 +66,7 @@ class LeaderController extends Controller {
             $data['username'] = $_POST['username'];
             $data['password'] = md5($_POST['password']);
             $data['description'] = $_POST['description'];
-            $data['role'] = 'leader';
+            $data['role'] = 'teamleader';
             $data['status'] = 'available';
             $data['id'] = $id;
 

@@ -100,7 +100,7 @@
 
                 <form method="post" action="<?php echo URL; ?>NewsFeed/create">
                     <div class="form-group">
-                        <label>Email address / Username</label>
+                        <label>Title</label>
                         <input type="text" class="form-control" name="title" id="manager_uname" placeholder="Title" required="">
                     </div>
 

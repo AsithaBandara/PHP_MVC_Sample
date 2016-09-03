@@ -119,7 +119,7 @@ if (Session::get('loggedIn') == true) {
                             </a>
                         </p>
                         <p>
-                            <a href="manager_dashboard.php" style="text-decoration: none;">
+                            <a href="<?php echo URL; ?>LeaderProject" style="text-decoration: none;">
                                 <button type="button" class="select_pm btn btn-default btn-sm btn-block">Project</button>
                             </a>
                         </p>

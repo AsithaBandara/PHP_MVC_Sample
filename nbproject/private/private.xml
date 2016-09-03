@@ -3,8 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/uom_project/views/Customer/index.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/models/LeaderModel.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/controllers/LeaderController.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/views/Register/index.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/models/DashboardModel.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/.htaccess</file>
+            <file>file:/C:/xampp/htdocs/uom_project/models/ManagerModel.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/models/LeaderProjectModel.php</file>
             <file>file:/C:/xampp/htdocs/uom_project/models/CustomerModel.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/controllers/LeaderProjectController.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/views/Leader/index.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/views/Leader/Project_Dashboard.php</file>
+            <file>file:/C:/xampp/htdocs/uom_project/views/nav.php</file>
         </group>
     </open-files>
 </project-private>

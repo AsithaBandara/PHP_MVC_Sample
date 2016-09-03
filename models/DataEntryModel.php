@@ -74,7 +74,6 @@ class DataEntryModel extends Model {
     public function editSave($data) {
         try {
 
-
             $sth = $this->db->prepare("UPDATE camss_user SET `username` = :username , `password` = :password,`role`= :role ,`updated_at` = :updated_at WHERE `id` = :id");
 
             $sth->execute(array(
